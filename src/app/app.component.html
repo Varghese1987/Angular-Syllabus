@@ -1,0 +1,50 @@
+<h1>Angular assessment</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2">
+            <div>
+                <button (click)="addDay()" class="btn btn-primary btn-lg">Add Day</button>
+            </div>
+            <div *ngFor="let item of days" class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary btn-lg"
+                    (click)="selectDay(item.dayId)">Day{{item.dayId}}</button>
+                <button type="button" class="btn btn-secondary" (click)="deleteDay(item.dayId)">X</button>
+            </div><br>
+        </div>
+        <div class="col-lg-4">
+            <form hidden='true' id="addTopic">
+                <div class="row">
+                    <div class=col-lg-4>
+                        <button (click)="viewTopicModel()">+</button>
+                    </div>
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i>search</button>
+                </div>
+                <div class="row">
+                    <div *ngFor="let item of displayList" class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary btn-lg">{{item.title}}</button>
+                        <button type="button" class="btn btn-secondary btn-lg">{{item.type}}</button>
+                        <button type="button" class="btn btn-secondary btn-lg">X</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class=col-lg-6>
+            <form>
+                <ngb-accordion #acc="ngbAccordion">
+                    <ngb-panel id="toggle-1" title="First">
+                        <ng-template ngbPanelContent>
+                            <angular-editor [placeholder]="'Enter text here...'"></angular-editor>
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel id="toggle-2" title="Second">
+                        <ng-template ngbPanelContent>
+                            <angular-editor [placeholder]="'Enter text here...'"></angular-editor>
+                        </ng-template>
+                    </ngb-panel>
+                </ngb-accordion>
+            </form>
+        </div>
+
+    </div>
+</div>
