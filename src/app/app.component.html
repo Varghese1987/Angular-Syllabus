@@ -1,5 +1,5 @@
-<h1>Angular assessment</h1>
-<div class="container-fluid">
+<div class="container">
+    <h1 class = "text-center">Syllabus Management</h1>
     <div class="row">
         <div class="col-lg-2">
             <div>
@@ -15,16 +15,20 @@
             <form hidden='true' id="addTopic">
                 <div class="row">
                     <div class=col-lg-4>
-                        <button (click)="viewTopicModel()">+</button>
+                        <button class="btn btn-secondary btn-lg " (click)="viewTopicModel()">+</button>
                     </div>
                     <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i>search</button>
+                    <button class = "btn btn-primary"type="submit"><i class="fa fa-search"></i>search</button>
                 </div>
-                <div class="row">
-                    <div *ngFor="let item of displayList" class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary btn-lg">{{item.title}}</button>
-                        <button type="button" class="btn btn-secondary btn-lg">{{item.type}}</button>
-                        <button type="button" class="btn btn-secondary btn-lg">X</button>
+                <div *ngFor="let item of displayList" class="btn-group" role="group" aria-label="Basic example">
+                    <div class="card d-flex">
+                        <div class="row">
+                            <div class="col-lg-12 btn-group" role="group">
+                                <div type="button" class="btn btn-secondary btn-lg ">{{item.title}}</div>
+                                <div type="button" class="btn btn-secondary btn-lg">{{item.type}}</div>
+                                <div type="button" class="btn btn-secondary btn-lg">X</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -32,12 +36,12 @@
         <div class=col-lg-6>
             <form>
                 <ngb-accordion #acc="ngbAccordion">
-                    <ngb-panel id="toggle-1" title="First">
+                    <ngb-panel id="toggle-1" title="Content">
                         <ng-template ngbPanelContent>
                             <angular-editor [placeholder]="'Enter text here...'"></angular-editor>
                         </ng-template>
                     </ngb-panel>
-                    <ngb-panel id="toggle-2" title="Second">
+                    <ngb-panel id="toggle-2" title="Instruction For Mentor">
                         <ng-template ngbPanelContent>
                             <angular-editor [placeholder]="'Enter text here...'"></angular-editor>
                         </ng-template>
